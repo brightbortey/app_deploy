@@ -52,7 +52,10 @@ def on_message(client,userdata,msg):
     studentnumber=msg.payload.decode("utf-8")
     socketio.emit('response', {'studentnumber': studentnumber}, namespace='/test')
 
-
+@app.route('/data')
+def data():
+    return render_template('data.html')
+    
 @app.route('/get_data', methods=['GET'])
 def get_data():
     print("here")

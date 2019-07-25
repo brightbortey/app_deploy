@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <style>
+    </style>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,13 +18,13 @@
     <link href="{{url_for('static' , filename='bootstrap.css') }}"rel="stylesheet">
     <link href="{{url_for('static' , filename='style.css') }}"rel="stylesheet">
     
-<script>
+<script style = "color:red;">
 $(document).ready(function(){
     console.log("document ready")
     var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
     socket.on('response', function(msg) {
         console.log('<p>Received: ' + msg.studentnumber + '</p>');
-        document.getElementById('log').innerHTML='<p>Student Number: ' + msg.studentnumber + '</p>';
+        document.getElementById('log').innerHTML='<p style="color: chololate;">Number: ' + msg.studentnumber + '</p>';
     });
     $('form#emit').submit(function(event) {
         socket.emit('my event', {studentnumber: $('#emit_studentnumber').val()});
@@ -36,7 +38,7 @@ $(document).ready(function(){
 
 </script>
 
-<script>
+<script style = "">
     $(document).ready(function(){
         // month converter from index / 0-11 values
 function covertMonth(num){
@@ -74,10 +76,11 @@ Time();}); // initial call
 
 </head>
 
-<body>
+<body style="background-color:teal;">
 
     <!-- Header Area Start -->
     <header class="header-area">
+        <h1 style = "text-align: center; color: silver;  "><u>ATTENDANCE CHECKER</u></h1>
         <!-- Top Header Area Start -->
         <!-- Top Header Area End -->
 
@@ -89,10 +92,10 @@ Time();}); // initial call
                     <nav class="classy-navbar justify-content-between" id="akameNav">
                         <div class="classy-menu">
                             <!-- Menu Close Button -->
-                            <div class="classycloseIcon">
+                            <!--<div class="classycloseIcon">
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
-                            </div>
+                            </div>-->
                             <!-- Nav End -->
                         </div>
                     </nav>
@@ -103,16 +106,16 @@ Time();}); // initial call
     <!-- Header Area End -->
 
     <!-- Contact Information Area Start -->
-    <section class="contact-information-area section-padding-80-0">
+    <!--<section class="contact-information-area section-padding-80-0">
         <div class="container">
             <div class="row">
         </div>
-    </section>
+    </section>-->
     <!-- Contact Information Area End -->
             <div class="row">
                 <div class="col-12">
                     <!-- Form -->
-                    <form action="#" method="post" class="akame-contact-form border-0 p-0">
+                   
                         <div class="row">
                             <div class="col-lg-6">
                             </div>
@@ -121,10 +124,9 @@ Time();}); // initial call
                             <div class="col-12">  
                             </div>
                             <div class="col-12 text-center">
-                                <button type="submit" class="btn akame-btn btn-3 mt-15 active">Data Base</button>
+                            <button class="btn akame-btn btn-3 mt-15 active"><a href="/data">Data Base</a></button>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -163,14 +165,14 @@ Time();}); // initial call
 
                         <!-- Widget Title -->
                         <h4 class="widget-title"><span>Date And Time</span></h4>
-                        <div id="time"></div>
+                        <div style= "color: chocolate;" id="time"></div>
                         <h4 class="widget-title"><span></span></h4>
 
                         <!-- Contact Address -->
                         <div class="contact-address">
                         
                         <h4 class="widget-title">Current Number Present</h4>
-                        <div id="log"></div>
+                        <div style="color:chocolate;" id="log"></div>
                         </div>
                     </div>
                 </div>
